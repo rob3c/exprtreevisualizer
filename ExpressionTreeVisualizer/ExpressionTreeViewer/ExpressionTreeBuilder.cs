@@ -43,10 +43,13 @@ namespace ExpressionTreeViewer
             if (expression is DefaultExpression)
             {
                 var expr = expression as DefaultExpression;
+                node = new ExpressionTreeNode(string.Format("DefaultExpression: [{0}]", expr.Type.Name));
             }
             if (expression is DynamicExpression)
             {
                 var expr = expression as DynamicExpression;
+                node = new ExpressionTreeNode(string.Format("DynamicExpression [{0}] Arguments:", expr.DelegateType.Name));
+                expr.Arguments.ToList().ForEach(a => node.Nodes.Add(GetExpressionTreeNode(a)));
             }
             if (expression is GotoExpression)
             {
