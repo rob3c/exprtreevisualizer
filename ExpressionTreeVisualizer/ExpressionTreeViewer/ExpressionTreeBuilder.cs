@@ -137,6 +137,7 @@ namespace ExpressionTreeViewer
                 node = new ExpressionTreeNode(string.Format("Unkown Node [{0}-{1}]: {2}", expression.GetType().Name, expression.NodeType, expression));
             if (prefix != null)
                 node.Text = string.Format("{0} => {1}", prefix, node.Text);
+            node.ExpressionString = expression.ToString();
             return node;
         }
     }
@@ -152,5 +153,6 @@ namespace ExpressionTreeViewer
 
         public string Text { get; set; }
         public List<ExpressionTreeNode> Nodes { get; set; }
+        public string ExpressionString { get; set; }
     }
 }
