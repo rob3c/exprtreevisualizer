@@ -58,10 +58,15 @@ namespace ExpressionTreeViewer
             if (expression is IndexExpression)
             {
                 var expr = expression as IndexExpression;
+                node = new ExpressionTreeNode(string.Format("IndexExpression [{0}] Arguments:", expr.Indexer.Name));
+                expr.Arguments.ToList().ForEach(a => node.Nodes.Add(GetExpressionTreeNode(a)));
             }
             if (expression is InvocationExpression)
             {
                 var expr = expression as InvocationExpression;
+                node = new ExpressionTreeNode(string.Format("InvocationExpression [{0}] Arguments:", expr.Expression));
+                expr.Arguments.ToList().ForEach(a => node.Nodes.Add(GetExpressionTreeNode(a)));
+                node.Nodes.Add(GetExpressionTreeNode(expr.Expression, "Expression"));
             }
             if (expression is LabelExpression)
             {
@@ -89,6 +94,8 @@ namespace ExpressionTreeViewer
             if (expression is MemberInitExpression)
             {
                 var expr = expression as MemberInitExpression;
+                node = new ExpressionTreeNode(string.Format("MemberInitExpression [{0}]:", expr.NewExpression.Type));
+                expr.Bindings.ToList().ForEach(b => node.Nodes.Add(new ExpressionTreeNode(b.ToString())));
             }
             if (expression is MethodCallExpression)
             {
@@ -110,6 +117,7 @@ namespace ExpressionTreeViewer
             if (expression is ParameterExpression)
             {
                 var expr = expression as ParameterExpression;
+                node = new ExpressionTreeNode(string.Format("TypeBinaryExpression [{0}]: {1}", expr.Type, expr.Name));
             }
             if (expression is RuntimeVariablesExpression)
             {
@@ -126,6 +134,8 @@ namespace ExpressionTreeViewer
             if (expression is TypeBinaryExpression)
             {
                 var expr = expression as TypeBinaryExpression;
+                node = new ExpressionTreeNode(string.Format("TypeBinaryExpression [{0}] Oprand:", expr.TypeOperand));
+                node.Nodes.Add(GetExpressionTreeNode(expr.Expression));
             }
             if (expression is UnaryExpression)
             {
