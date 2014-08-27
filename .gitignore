@@ -1,0 +1,78 @@
+# OS junk
+[Tt]humbs.db
+*.DS_Store
+
+# Visual Studio
+*.[Oo]bj
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.opensdf
+*.unsuccessfulbuild
+*_Report.htm
+ipch/
+obj/
+[Bb]in/
+[Dd]ebug/		# removed the * so DebugNoRef would be caught
+[Rr]elease*/
+Ankh.NoLoad
+
+# Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+*DXCore.Solution
+*sln.ide/
+*.sln.ide
+
+
+# Project
+[Bb]uild/
+*.tmp_proj
+
+# Subversion
+.svn
+
+# Office Temp
+~$*
+
+#NuGet
+packages/
+
+# Lightswitch
+*.lsproj.user
+# ServiceConfiguration.cscfg  # not including this caused me problems when the csdef was included!
+# _Pvt_Extensions/	# need this commented out with the next line enabled for build server to work with LS projects
+LsPkgLastWriteTime.txt
+GeneratedArtifacts/
+
+# PowerGREP Backup files
+Backup*
+
+# file exceptions
+!Bin/Data/ApplicationDatabase.mdf
+!Bin/Data/ApplicationDatabase_log.ldf
+
+
+*.jcsettings.xml
+/.nuget/NuGet.exe
+*.wadcfg
+*.jtconfig
+*.FileListAbsolute.txt
+*/ModelManifest.xml
+*.jmconfig
